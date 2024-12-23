@@ -1,22 +1,179 @@
+:root {
+    --color-principal: #0929c2;
+    --color-secundario: #0d47a1;
+    --color-hover: #1976d2;
+    --color-blanco: white;
+    --color-gris-claro: #f8f9fa;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-sombra-intensa: rgba(0, 0, 0, 0.3);
+    --color-footer-hover: #1976d2;
+    --color-footer-icono: #0dbbbb;
+    --color-footer-icono-hover: #00a4a4;
+    --color-footer-link-hover: #7ec8ff;
+}
+
 html {
-  font-size: 14px;
-}
-
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
+    font-size: 67.5%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 6em;
+    font-family: 'Arial', sans-serif;
 }
+
+/*Header*/
+
+header {
+    background: linear-gradient(135deg, var(--color-secundario), var(--color-principal));
+    padding: 1em 0;
+    box-shadow: 0 0.5em 1em var(--color-sombra-intensa);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width:100%;
+    padding: 0 1em;
+}
+
+/* Imagen-Logo */
+.contenedor-imagen-logo {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-imagen-logo img {
+    max-width: 100%;
+    border-radius: 50%; /* Forma redonda para más estilo */
+    box-shadow: 0.3em 0.3em 0.5em var(--color-sombra);
+}
+
+/* Botones */
+.contenedor-enlaces-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 75%;
+}
+
+.boton-header {
+    color: var(--color-blanco);
+    border: 2px solid var(--color-hover);
+    background-color: var(--color-secundario);
+    margin: 0.5em;
+    padding: 1em 1.5em;
+    border-radius: 2em;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+    box-shadow: 0.2em 0.2em 0.5em var(--color-sombra);
+}
+
+.boton-header:hover {
+    background-color: var(--color-hover);
+    color: var(--color-blanco);
+    transform: translateY(-0.2em);
+    box-shadow: 0.3em 0.3em 0.6em var(--color-sombra-intensa);
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, var(--color-secundario), var(--color-principal));
+    color: white;
+    padding: 2em 1em;
+    text-align: center;
+    box-shadow: 0 -0.5em 1em rgba(0, 0, 0, 0.1);
+}
+
+.contenedor-footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5em;
+}
+
+/* Enlaces sociales */
+.footer-enlaces-sociales {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-icono {
+    color: white;
+    font-size: 2rem;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-icono:hover {
+    color: var(--color-footer-icono-hover);
+    transform: scale(1.2);
+}
+
+/* Copyright */
+.footer-copyright {
+    font-size: 1.4rem;
+}
+
+.footer-copyright strong {
+    color: var(--color-footer-icono);
+}
+
+.footer-link {
+    color: var(--color-footer-texto);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-footer-link-hover);
+}
+
+
+/* Ajustes para móviles */
+@media screen and (max-width: 768px) {
+    /*Ajustes Generales*/
+    nav {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /*Header*/
+    /*Imagen-Logo*/
+    .contenedor-imagen-logo {
+        width: 50%;
+        margin-bottom: 1em;
+    }
+    /*Botones*/
+    .contenedor-enlaces-header {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .boton-header {
+        width: 90%;
+        margin: 0.5em 0;
+    }
+
+
+}
+
+
+
+
+    
