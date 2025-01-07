@@ -17,8 +17,8 @@ html {
 }
 
 body {
-    margin-bottom: 6em;
     font-family: 'Arial', sans-serif;
+    background-color:#e8e8e8;
 }
 
 /*Header*/
@@ -27,6 +27,7 @@ header {
     background: linear-gradient(135deg, var(--color-secundario), var(--color-principal));
     padding: 1em 0;
     box-shadow: 0 0.5em 1em var(--color-sombra-intensa);
+    margin-bottom:1em;
 }
 
 nav {
@@ -145,7 +146,7 @@ footer {
 
 
 /* Ajustes para móviles */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 864px) {
     /*Ajustes Generales*/
     nav {
         flex-direction: column;
