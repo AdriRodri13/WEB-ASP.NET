@@ -1,0 +1,36 @@
+﻿@model WEB_ASP.NET.Models.Servicios
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/servicios.css">
+}
+
+<div class="page-container">
+    <h1 class="page-title">Detalles del Servicio</h1>
+
+    <div class="details-container">
+        <div class="details-row">
+            <div class="details-label">@Html.DisplayNameFor(model => model.Titulo)</div>
+            <div class="details-value">@Html.DisplayFor(model => model.Titulo)</div>
+        </div>
+        <div class="details-row">
+            <div class="details-label">@Html.DisplayNameFor(model => model.Contenido)</div>
+            <div class="details-value">@Html.DisplayFor(model => model.Contenido)</div>
+        </div>
+        <div class="details-row">
+            <div class="details-label">@Html.DisplayNameFor(model => model.ImagenURL)</div>
+            <div class="details-value">
+                <img src="@Model.ImagenURL" alt="@Model.Titulo" style="max-width: 30em; border-radius: 0.6em;" />
+            </div>
+        </div>
+
+        <div class="actions-container">
+            <a asp-action="Edit" asp-route-id="@Model?.ID" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" class="btn btn-back">Volver al Listado</a>
+        </div>
+    </div>
+</div>

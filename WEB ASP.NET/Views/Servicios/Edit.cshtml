@@ -1,0 +1,52 @@
+﻿@model WEB_ASP.NET.Models.Servicios
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/servicios.css">
+}
+
+<div class="page-container">
+    <h1 class="page-title">Editar Servicio</h1>
+
+    <div class="form-container">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Titulo" class="control-label">Título</label>
+                <input asp-for="Titulo" class="form-control" />
+                <span asp-validation-for="Titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Contenido" class="control-label">Contenido</label>
+                <textarea asp-for="Contenido" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Contenido" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label for="ImagenFile" class="control-label">Imagen</label>
+                @if (!string.IsNullOrEmpty(Model.ImagenURL))
+                {
+                    <div class="mb-2">
+                        <img src="@Model.ImagenURL" alt="Imagen actual" style="max-width: 200px; border-radius: 0.6em;" />
+                        <p class="text-muted">Imagen actual</p>
+                    </div>
+                }
+                <input type="file" id="ImagenFile" name="ImagenURL" class="form-control"
+                       accept=".jpg,.jpeg,.png" />
+                <small class="text-muted">Formatos permitidos: JPG, PNG. Deja vacío para mantener la imagen actual.</small>
+            </div>
+            <div class="actions-container">
+                <input type="submit" value="Guardar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-back">Volver al Listado</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/WEB_ASP.NET.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    @RenderSection("Styles",false)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
@@ -19,8 +19,8 @@
            </div>
            <div class="contenedor-enlaces-header">                        
                 <a class="boton-header" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
-                <a class="boton-header" asp-area="" asp-controller="Home" asp-action="Servicios">Servicios</a>
-                <a class="boton-header" asp-area="" asp-controller="Home" asp-action="Tarifas">Tarifas</a>
+                <a class="boton-header" asp-area="" asp-controller="Servicios" asp-action="Index">Servicios</a>
+                <a class="boton-header" asp-area="" asp-controller="Tarifas" asp-action="Tarifas">Tarifas</a>
                 <a class="boton-header" asp-area="" asp-controller="Home" asp-action="Info">¿Quienes Somos?</a>
                 <a class="boton-header" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
            </div>

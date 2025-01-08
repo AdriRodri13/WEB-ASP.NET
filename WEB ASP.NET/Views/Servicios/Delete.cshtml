@@ -1,0 +1,45 @@
+﻿@model WEB_ASP.NET.Models.Servicios
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/servicios.css">
+}
+
+<div class="page-container">
+    <h1 class="page-title">Eliminar Servicio</h1>
+    <h3 class="page-subtitle">¿Estás seguro de que deseas eliminar este servicio?</h3>
+
+    <div class="details-container">
+        <div class="details-row">
+            <div class="details-label">@Html.DisplayNameFor(model => model.Titulo)</div>
+            <div class="details-value">@Html.DisplayFor(model => model.Titulo)</div>
+        </div>
+        <div class="details-row">
+            <div class="details-label">@Html.DisplayNameFor(model => model.Contenido)</div>
+            <div class="details-value">@Html.DisplayFor(model => model.Contenido)</div>
+        </div>
+        <div class="details-row">
+            <div class="details-label">@Html.DisplayNameFor(model => model.ImagenURL)</div>
+            <div class="details-value">
+                @if (!string.IsNullOrEmpty(Model.ImagenURL))
+                {
+                    <img src="@Model.ImagenURL" alt="Imagen del servicio" style="max-width: 200px; height: auto;" />
+                }
+                else
+                {
+                    <span>No hay imagen disponible</span>
+                }
+            </div>
+        </div>
+
+        <form asp-action="Delete" class="actions-container">
+            <input type="hidden" asp-for="ID" />
+            <input type="submit" value="Eliminar" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-back">Volver al Listado</a>
+        </form>
+    </div>
+</div>

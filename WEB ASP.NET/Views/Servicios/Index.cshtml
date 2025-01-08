@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WEB_ASP.NET.Models.Servicios>
+
+@{
+    ViewData["Title"] = "Servicios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/servicios.css">
+}
+
+<h1>Servicios</h1>
+
+<a asp-action="Create" class="btn-crear">Crear Nuevo Servicio</a>
+
+<div class="servicios-lista">
+    @foreach (var item in Model)
+    {
+        <div class="servicio-card">
+            <img src="@item.ImagenURL" alt="@item.Titulo" class="servicio-imagen" onerror="this.src='/api/placeholder/800/600'" />
+            <div class="servicio-contenido">
+                <h3 class="servicio-titulo">@item.Titulo</h3>
+                <p class="servicio-texto">@item.Contenido</p>
+                <div class="servicio-acciones">
+                    <a asp-action="Edit" asp-route-id="@item.ID" class="btn-accion btn-editar">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.ID" class="btn-accion btn-detalles">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.ID" class="btn-accion btn-eliminar">Eliminar</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
