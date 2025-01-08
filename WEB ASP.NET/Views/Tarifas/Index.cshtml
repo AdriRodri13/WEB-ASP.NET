@@ -5,47 +5,57 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Nombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Atributos)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Precio)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                    @foreach (var atributo in item.Atributos)
-                    {
-                        <p>@atributo</p> <!-- Mostrar cada atributo en un párrafo -->
-                    }
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Precio)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+@section Styles {
+    <link rel=" stylesheet" href="~/css/tarifa.css">
 }
-    </tbody>
-</table>
+
+<div class="container mt-5">
+    <div class="row mb-4">
+        <div class="col">
+            <h1>Nuestras Tarifas</h1>
+            
+                <p class="text-center">
+                    <a asp-action="Create" class="btn btn-primary">Crear Nueva Tarifa</a>
+                </p>
+            
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="tarifa-card">
+                    <div class="tarifa-header">
+                        <h3 class="m-0">@item.Nombre</h3>
+                    </div>
+                    <div class="tarifa-content">
+                        <div class="tarifa-body">
+                            <ul class="tarifa-atributos">
+                                @foreach (var atributo in item.Atributos)
+                                {
+                                    <li>
+                                        <i class="fas fa-check-circle"></i>
+                                        @atributo
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <div class="tarifa-footer">
+                            <div class="tarifa-precio">
+                                @item.Precio.ToString("C")
+                            </div>
+                            
+                                <div class="admin-actions">
+                                    <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i> Editar</a> |
+                                    <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i> Detalles</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i> Eliminar</a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

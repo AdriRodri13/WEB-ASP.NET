@@ -14,11 +14,19 @@
 
 html {
     font-size: 67.5%;
+    height: 100%;
 }
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color:#e8e8e8;
+    background-color: #e8e8e8;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main{
+    flex:1 0 auto;
 }
 
 /*Header*/
@@ -93,6 +101,8 @@ footer {
     padding: 2em 1em;
     text-align: center;
     box-shadow: 0 -0.5em 1em rgba(0, 0, 0, 0.1);
+    flex-shrink:0;
+    margin-top:auto;
 }
 
 .contenedor-footer {

@@ -9,7 +9,12 @@ namespace WEB_ASP.NET.Controllers
             return View();
         }
 
-        public IActionResult Servicios()
+        public IActionResult Info()
+        {
+            return View();
+        }
+
+        public IActionResult Contacto() 
         {
             return View();
         }

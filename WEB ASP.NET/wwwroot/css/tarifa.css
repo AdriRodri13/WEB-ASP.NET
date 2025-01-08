@@ -1,0 +1,290 @@
+﻿/* Variables globales */
+:root {
+    --color-principal: #0929c2;
+    --color-secundario: #0d47a1;
+    --color-hover: #1976d2;
+    --color-blanco: white;
+    --color-gris-claro: #f8f9fa;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-sombra-intensa: rgba(0, 0, 0, 0.3);
+    --color-footer-hover: #1976d2;
+    --color-footer-icono: #0dbbbb;
+    --color-footer-icono-hover: #00a4a4;
+    --color-footer-link-hover: #7ec8ff;
+    --color-danger: #dc3545;
+    --color-danger-hover: #c82333;
+    --color-texto: #333;
+    --borde-radio: 1.2em;
+    --transicion-default: all 0.3s ease;
+}
+
+/* Estilos de tipografía y títulos */
+.page-title, h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--color-principal);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 50px 0;
+    position: relative;
+}
+
+h1::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 5px;
+    background-color: var(--color-secundario);
+    bottom: -15px;
+    left: 25%;
+}
+
+.page-subtitle {
+    color: var(--color-secundario);
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+/* Contenedores */
+.page-container {
+    max-width: 120em;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+.form-container, .details-container {
+    background: var(--color-blanco);
+    border-radius: var(--borde-radio);
+    padding: 3em;
+    box-shadow: 0 0.4em 1.5em var(--color-sombra);
+    margin: 2em auto;
+}
+
+.form-container {
+    max-width: 80em;
+}
+
+/* Tarjetas de tarifas */
+/* Estructura principal de la tarjeta */
+.tarifa-card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--color-blanco);
+    box-shadow: 0 4px 6px var(--color-sombra);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.tarifa-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px var(--color-sombra-intensa);
+}
+
+/* Header de la tarjeta */
+.tarifa-header {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+/* Contenido principal */
+.tarifa-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0; /* Importante para que flex funcione correctamente */
+}
+
+.tarifa-body {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+/* Precios y atributos */
+.tarifa-precio {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--color-secundario);
+    text-align: center;
+    padding: 1.5rem 0;
+    background-color: var(--color-gris-claro);
+}
+
+.tarifa-footer {
+    margin-top: auto;
+    border-top: 1px solid var(--color-gris-claro);
+}
+
+/* Lista de atributos */
+.tarifa-atributos {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tarifa-atributos li {
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.tarifa-atributos i {
+    color: var(--color-footer-icono);
+    margin-right: 10px;
+}
+
+/* Formularios */
+.form-group {
+    margin-bottom: 2em;
+}
+
+.control-label {
+    color: var(--color-principal);
+    font-size: 1.6em;
+    margin-bottom: 0.5em;
+    display: block;
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1em;
+    font-size: 1.4em;
+    border: 0.1em solid #e0e0e0;
+    border-radius: 0.6em;
+    transition: var(--transicion-default);
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--color-principal);
+    box-shadow: 0 0 0 0.2em rgba(9, 41, 194, 0.1);
+}
+
+/* Mensajes de error */
+.text-danger {
+    color: var(--color-danger);
+    font-size: 1.2em;
+    margin-top: 0.5em;
+    display: block;
+}
+
+/* Detalles */
+.details-row {
+    display: grid;
+    grid-template-columns: 20em 1fr;
+    gap: 2em;
+    margin-bottom: 1.5em;
+    align-items: start;
+}
+
+.details-label {
+    color: var(--color-principal);
+    font-size: 1.6em;
+    font-weight: 500;
+}
+
+.details-value {
+    font-size: 1.6em;
+    color: var(--color-texto);
+}
+
+/* Botones y acciones */
+.btn {
+    padding: 1em 2em;
+    border-radius: 0.6em;
+    font-size: 1.4em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: var(--transicion-default);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--color-principal);
+    color: var(--color-blanco);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-hover);
+    transform: translateY(-0.2em);
+}
+
+.btn-danger {
+    background-color: var(--color-danger);
+    color: var(--color-blanco);
+}
+
+.btn-danger:hover {
+    background-color: var(--color-danger-hover);
+    transform: translateY(-0.2em);
+}
+
+.btn-back {
+    background-color: var(--color-gris-claro);
+    color: var(--color-principal);
+    margin-top: 2em;
+}
+
+.btn-back:hover {
+    background-color: #e9ecef;
+    color: var(--color-hover);
+}
+
+.actions-container {
+    display: flex;
+    gap: 1em;
+    margin-top: 2em;
+}
+
+.admin-actions {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--color-gris-claro);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.admin-actions a {
+    color: var(--color-secundario);
+    margin: 0 0.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.admin-actions a:hover {
+    color: var(--color-hover);
+}
+
+/* Media queries para responsive */
+@media (max-width: 768px) {
+    .tarifa-card {
+        margin-bottom: 2rem;
+    }
+
+    .form-container {
+        padding: 2em;
+    }
+
+    .details-row {
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+    }
+
+    .actions-container {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
