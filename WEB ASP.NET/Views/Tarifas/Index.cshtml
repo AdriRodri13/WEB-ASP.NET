@@ -45,12 +45,14 @@
                             <div class="tarifa-precio">
                                 @item.Precio.ToString("C")
                             </div>
-                            
+                            @if (User.IsInRole("Empleado") || User.IsInRole("Admin"))
+                            {
                                 <div class="admin-actions">
                                     <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i> Editar</a> |
                                     <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i> Detalles</a> |
                                     <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i> Eliminar</a>
                                 </div>
+                            }
                             
                         </div>
                     </div>

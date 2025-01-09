@@ -26,6 +26,25 @@
            </div>
         </nav>
         <hr />
+        <div class="contenedor-auth">
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="auth-info">
+                    <span class="auth-text">Bienvenido/a, @User.Identity.Name</span>
+                    <form asp-controller="Cuenta" asp-action="CerrarSesion" method="post" class="auth-form">
+                        <button type="submit" class="boton-auth">Cerrar Sesión</button>
+                    </form>
+                    
+                </div>
+            }
+            else
+            {
+                <div class="auth-info">
+                    <a class="boton-auth" asp-controller="Cuenta" asp-action="IniciarSesion">Iniciar Sesión</a>
+                    <a class="boton-auth" asp-controller="Cuenta" asp-action="Registro">Registro</a>
+                </div>
+            }
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3 content">

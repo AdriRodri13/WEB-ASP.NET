@@ -21,11 +21,15 @@
             <div class="servicio-contenido">
                 <h3 class="servicio-titulo">@item.Titulo</h3>
                 <p class="servicio-texto">@item.Contenido</p>
+                
+                @if (User.IsInRole("Empleado") || User.IsInRole("Admin"))
+                 {
                 <div class="servicio-acciones">
                     <a asp-action="Edit" asp-route-id="@item.ID" class="btn-accion btn-editar">Editar</a>
                     <a asp-action="Details" asp-route-id="@item.ID" class="btn-accion btn-detalles">Detalles</a>
                     <a asp-action="Delete" asp-route-id="@item.ID" class="btn-accion btn-eliminar">Eliminar</a>
                 </div>
+                 }
             </div>
         </div>
     }
