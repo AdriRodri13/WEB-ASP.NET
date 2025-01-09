@@ -6,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 builder.Services.AddDbContext<ServiciosContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDbContext<TarifasContext>(options =>
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddDbContext<TarifasContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
