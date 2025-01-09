@@ -1,0 +1,46 @@
+﻿@model WEB_ASP.NET.Models.Tarifas
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/tarifa.css">
+}
+
+<div class="page-container">
+    <h1 class="page-title">Eliminar Tarifa</h1>
+    <h4 class="page-subtitle">¿Estás seguro de que deseas eliminar esta tarifa?</h4>
+
+    <div class="details-container">
+        <div class="details-row">
+            <div class="details-label">Nombre</div>
+            <div class="details-value">@Model.Nombre</div>
+        </div>
+
+        <div class="details-row">
+            <div class="details-label">Atributos</div>
+            <div class="details-value">
+                @foreach (var atributo in Model.Atributos)
+                {
+                    <div>• @atributo</div>
+                }
+            </div>
+        </div>
+
+        <div class="details-row">
+            <div class="details-label">Precio</div>
+            <div class="details-value">@Model.Precio.ToString("C")</div>
+        </div>
+
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="Id" />
+            <div class="actions-container">
+                <input type="submit" value="Confirmar Eliminación" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-back">Volver al Listado</a>
+            </div>
+        </form>
+    </div>
+</div>

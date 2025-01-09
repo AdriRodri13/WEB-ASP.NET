@@ -1,0 +1,229 @@
+﻿:root {
+    --color-principal: #0929c2;
+    --color-secundario: #0d47a1;
+    --color-hover: #1976d2;
+    --color-blanco: white;
+    --color-gris-claro: #f8f9fa;
+    --color-sombra: rgba(0, 0, 0, 0.1);
+    --color-sombra-intensa: rgba(0, 0, 0, 0.3);
+    --color-footer-hover: #1976d2;
+    --color-footer-icono: #0dbbbb;
+    --color-footer-icono-hover: #00a4a4;
+    --color-footer-link-hover: #7ec8ff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero {
+    background: linear-gradient(135deg, var(--color-principal), var(--color-secundario));
+    color: var(--color-blanco);
+    padding: 4rem 2rem;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+    box-shadow: 0 10px 20px var(--color-sombra);
+    transform: skewY(-2deg);
+    position: relative;
+    overflow: hidden;
+}
+
+    .hero > * {
+        transform: skewY(2deg);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+.hero-image {
+    position: absolute;
+    right: -50px;
+    bottom: -50px;
+    width: 300px;
+    height: 300px;
+    opacity: 0.1;
+    transform: skewY(2deg);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.card {
+    background: var(--color-blanco);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--color-sombra);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px var(--color-sombra-intensa);
+    }
+
+    .card h3 {
+        color: var(--color-principal);
+        margin-bottom: 1rem;
+    }
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--color-principal);
+    margin-bottom: 1rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 4rem 0;
+    gap: 2rem;
+    background: var(--color-gris-claro);
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+.stat-item {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+}
+
+    .stat-item::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 50px;
+        width: 1px;
+        background: var(--color-sombra);
+    }
+
+    .stat-item:last-child::after {
+        display: none;
+    }
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--color-principal);
+    margin-bottom: 0.5rem;
+    animation: countUp 2s ease-out;
+}
+
+.stat-icon {
+    font-size: 2.5rem;
+    color: var(--color-secundario);
+    margin-bottom: 1rem;
+}
+
+.team {
+    text-align: center;
+    margin: 4rem 0;
+    position: relative;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.team-member {
+    text-align: center;
+}
+
+.team-member-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    background: var(--color-gris-claro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-principal);
+    font-size: 4rem;
+}
+
+.values {
+    background: var(--color-gris-claro);
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+}
+
+.feature-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 2rem 0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .stat-item {
+        min-width: 150px;
+    }
+
+        .stat-item::after {
+            display: none;
+        }
+
+    .team-member-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .hero-image {
+        width: 200px;
+        height: 200px;
+    }
+}

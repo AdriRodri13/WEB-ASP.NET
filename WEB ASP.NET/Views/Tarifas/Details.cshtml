@@ -1,0 +1,43 @@
+﻿@model WEB_ASP.NET.Models.Tarifas
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/tarifa.css">
+}
+
+<div class="page-container">
+    <h1 class="page-title">Detalles de Tarifa</h1>
+    <h4 class="page-subtitle">@Model.Nombre</h4>
+
+    <div class="details-container">
+        <div class="details-row">
+            <div class="details-label">Nombre</div>
+            <div class="details-value">@Model.Nombre</div>
+        </div>
+
+        <div class="details-row">
+            <div class="details-label">Atributos</div>
+            <div class="details-value">
+                @foreach (var atributo in Model.Atributos)
+                {
+                    <div>• @atributo</div>
+                }
+            </div>
+        </div>
+
+        <div class="details-row">
+            <div class="details-label">Precio</div>
+            <div class="details-value">@Model.Precio.ToString("C")</div>
+        </div>
+
+        <div class="actions-container">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Editar</a>
+            <a asp-action="Index" class="btn btn-back">Volver al Listado</a>
+        </div>
+    </div>
+</div>

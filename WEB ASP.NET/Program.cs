@@ -7,7 +7,8 @@ var configuration = builder.Configuration;
 builder.Services.AddDbContext<ServiciosContext>(options =>
     options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-
+builder.Services.AddDbContext<TarifasContext>(options =>
+    options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
 
 // Add services to the container.

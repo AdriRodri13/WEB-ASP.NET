@@ -1,0 +1,50 @@
+﻿@model WEB_ASP.NET.Models.Tarifas
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Styles {
+    <link rel=" stylesheet" href="~/css/tarifa.css">
+}
+
+<div class="page-container">
+    <h1 class="page-title">Editar Tarifa</h1>
+    <h4 class="page-subtitle">Modificar Tarifa Existente</h4>
+
+    <div class="form-container">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Nombre" class="control-label">Nombre de la Tarifa</label>
+                <input asp-for="Nombre" class="form-control" />
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Atributos" class="control-label">Atributos (separados por coma)</label>
+                <input asp-for="Atributos" class="form-control" value="@string.Join(",", Model.Atributos)" />
+                <span asp-validation-for="Atributos" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Precio" class="control-label">Precio (€)</label>
+                <input asp-for="Precio" class="form-control" />
+                <span asp-validation-for="Precio" class="text-danger"></span>
+            </div>
+
+            <div class="actions-container">
+                <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-back">Volver al Listado</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
