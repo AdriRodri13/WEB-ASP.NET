@@ -1,0 +1,129 @@
+﻿/* Estilos para las cards de autenticación */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px var(--color-sombra);
+    background-color: var(--color-blanco);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px var(--color-sombra-intensa);
+    }
+
+.card-header {
+    background-color: var(--color-principal);
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.5rem 1rem;
+    border-bottom: none;
+}
+
+    .card-header h2 {
+        color: var(--color-blanco);
+        font-size: 1.75rem;
+        margin: 0;
+        font-weight: 600;
+    }
+
+.card-body {
+    padding: 2rem;
+    background-color: var(--color-blanco);
+    border-radius: 0 0 12px 12px;
+}
+
+/* Estilos para los campos del formulario */
+.form-label {
+    color: var(--color-secundario);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-control, .form-select {
+    border: 2px solid var(--color-gris-claro);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--color-hover);
+        box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.15);
+        outline: none;
+    }
+
+/* Estilos para el checkbox */
+.form-check-input {
+    border: 2px solid var(--color-secundario);
+    cursor: pointer;
+}
+
+    .form-check-input:checked {
+        background-color: var(--color-principal);
+        border-color: var(--color-principal);
+    }
+
+.form-check-label {
+    color: var(--color-secundario);
+    cursor: pointer;
+}
+
+/* Estilos para el botón */
+.btn-primary {
+    background-color: var(--color-principal);
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+    .btn-primary:hover {
+        background-color: var(--color-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 8px var(--color-sombra);
+    }
+
+    .btn-primary:active {
+        transform: translateY(0);
+    }
+
+/* Estilos para los mensajes de validación */
+.text-danger {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .col-md-6 {
+        padding: 0 1rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+}
+
+/* Animaciones de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeInUp 0.5s ease-out;
+}
